@@ -17,7 +17,7 @@ SyFSv1 ("Syzygy File System version 1") is (currently planned to be) a set of si
 
 ## Disk layout
 
-+ FS Block (described below) (1 sector)
++ Reserved area, containing the FS Block (described below)
 + Root directory area (8 sector) 
 + Data area
 
@@ -41,13 +41,13 @@ Each entry 32 bytes.
 |offset|size(bytes)|description|
 |-|-|-|
 |0x0|16|File name in ASCII. If shorter than 16 then it's padded with 0.|
-|0x10|1|Attribute word|
+|0x10|1|Attribute word (reserved. currently useless)|
 |0x11|2|The LBA of the first sector of the starting block.|
 |0x13|2|Creation time|
 |0x15|2|Creation date|
 |0x17|2|Last update time|
 |0x19|2|Last update date|
-|0x1b|4|File size in bytes*|
+|0x1b|4|File size in bytes|
 |0x1f|1|Reserved.|
 
 ### Time and date
